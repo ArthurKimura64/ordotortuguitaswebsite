@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/styles.css" />
+    <title>Home — Ordo Tortuguitas</title>
+</head>
+
+<body>
+
+    <header id="headerBar">
+        <h1>Ordo tortuguitas</h1>
+    </header>
+    <input type="text" id="inputText">
+    <div id="textoDigitado"></div>
+
+
+
+    
+</body>
+<script>
+    // Função para atualizar o texto
+    function atualizarTexto() {
+        var texto = document.getElementById("inputText").value;
+        document.getElementById("textoDigitado").innerText = "Texto digitado: " + texto;
+    }
+
+    // Adicionar event listeners para os eventos "input" e "keyup"
+    document.getElementById("inputText").addEventListener("input", atualizarTexto);
+    document.getElementById("inputText").addEventListener("keyup", atualizarTexto);
+
+    // Chamar a função inicialmente para exibir o valor inicial (se houver)
+    atualizarTexto();
+</script>
+</html>
