@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/CSS/fontFaces.css" />
+    <link rel="stylesheet" href="/CSS/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script> 
+    $(function(){
+      $("#myNavbar").load("/navigationbar.html"); 
+    });
+    </script> 
+</head>
+
+<body>
+    <div id="myNavbar"></div>
+    <div id="body-content">
+        <hr>
+        <div id="firstColumn">
+            <textarea id="inputTextDecrypt"></textarea>
+            <div id="outputTextDecrypt"></div>
+            <div id="memorySnapshot"></div>
+        </div>
+        <div id="secondColumn">
+            <textarea id="inputTextEncrypt"></textarea>
+            <div id="textoDigitadoDecrypt"></div>
+            <div id="memorySnapshotDecrypt"></div>
+        </div>
+    </section>
+</body>
+<script src="/Javascript/brainfuck.js" charset="utf-8"></script>
+
+</html>

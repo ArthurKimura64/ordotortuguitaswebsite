@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='utf-8'?>
+<svg height="800px" width="800px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <path d="M 25 400 
+          c +200 -300 +550 -300 +750 0
+          c -0.5 -0.5 +0.5 +0.5 0 0
+          c -200 +300 -550 +300 -750 0
+          c +0.5 +0.5 -0.5 -0.5 0 0 
+          " fill="none" stroke="black" stroke-width="25"/>
+    <circle r="160" cx="400" cy="400" fill="none" stroke="black" stroke-width="30" />
+    <polygon points="360,280 440,280 425,320 375,320" fill="black"/>
+    <polygon points="375,330 425,330 440,355 435,370 365,370 360,355" fill="black"/>
+    <polygon points="365,380 435,380 460,400 435,420 365,420 340,400" fill="black"/>
+    <polygon points="375,470 425,470 440,445 435,430 365,430 360,445" fill="black"/>
+    <polygon points="360,520 440,520 425,480 375,480" fill="black"/>
+
+    
+
+    <polygon points="350,285 365,325 350,350 315,320" fill="black"/>
+    <polygon points="450,285 435,325 450,350 485,320" fill="black"/>
+    <polygon points="350,515 365,475 350,450 315,480" fill="black"/>
+    <polygon points="450,515 435,475 450,450 485,480" fill="black"/>
+
+    <polygon points="310,325 345,355 352.5,375 330,395 291.5,395" fill="black"/>
+    <polygon points="310,475 345,445 352.5,425 330,405 291.5,405" fill="black"/>
+    <polygon points="490,325 455,355 447.5,375 470,395 508.5,395" fill="black"/>
+    <polygon points="490,475 455,445 447.5,425 470,405 508.5,405" fill="black"/>
+  </g>
+</svg>
