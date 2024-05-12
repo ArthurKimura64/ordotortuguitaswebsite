@@ -68,9 +68,3 @@ body {
         float: right;
     }
 }
-
-#inputTextDecrypt {
-    height: 250px;
-    width: 500px;
-    white-space: pre-wrap;
-}
