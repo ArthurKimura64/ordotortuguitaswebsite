@@ -1,6 +1,6 @@
 // Função para atualizar o texto
 function atualizarTexto() {
-    var texto = document.getElementById("inputTextDecrypt").value;
+    var texto = document.getElementById("brainfuck-decrypt").value;
 
     var result = brainfuckToText(texto);
     document.getElementById("outputTextDecrypt").innerText = "Texto digitado:\n\n" + result.output;
@@ -90,8 +90,8 @@ function textToBrainfuck(text) {
 }
 
 // Adicionar event listeners para os eventos "input" e "keyup"
-document.getElementById("inputTextDecrypt").addEventListener("input", atualizarTexto);
-document.getElementById("inputTextDecrypt").addEventListener("keyup", atualizarTexto);
+document.getElementById("brainfuck-decrypt").addEventListener("input", atualizarTexto);
+document.getElementById("brainfuck-decrypt").addEventListener("keyup", atualizarTexto);
 
 // Chamar a função inicialmente para exibir o valor inicial (se houver)
 atualizarTexto();
