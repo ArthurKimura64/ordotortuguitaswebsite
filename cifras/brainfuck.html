@@ -8,24 +8,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://arthurkimura64.github.io/ordotortuguitaswebsite/css/fontFaces.css" />
-    <link rel="stylesheet" href="https://arthurkimura64.github.io/ordotortuguitaswebsite/css/navegationBarStyle.css" />
+    <link rel="stylesheet" href="https://arthurkimura64.github.io/ordotortuguitaswebsite/css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>$(function () { $("#myNavbar").load("https://arthurkimura64.github.io/ordotortuguitaswebsite/html/navigationbar.html"); });</script>
 </head>
 
 <body>
-    <div class="navbar" id="myNavbar"></div>
-    <div id="body-content">
-        <hr>
-        <div id="firstColumn">
-            <textarea id="inputTextDecrypt"></textarea>
-            <div id="outputTextDecrypt"></div>
-            <div id="memorySnapshot"></div>
-        </div>
-        <div id="secondColumn">
-            <textarea id="inputTextEncrypt"></textarea>
-            <div id="textoDigitadoDecrypt"></div>
-            <div id="memorySnapshotDecrypt"></div>
+    <nav id="myNavbar"></nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <textarea id="inputTextDecrypt"></textarea>
+                <div id="outputTextDecrypt"></div>
+                <div id="memorySnapshot"></div>
+            </div>
+            <div class="col-6">
+                <textarea id="inputTextEncrypt"></textarea>
+                <div id="textoDigitadoDecrypt"></div>
+                <div id="memorySnapshotDecrypt"></div>
+            </div>
         </div>
     </div>
 </body>
