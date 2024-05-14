@@ -76,8 +76,30 @@ function brainfuckToText(code) {
 }
 
 function textToBrainfuck(text) {
+    let memory = [0,10,30,70,100]
+    let pointer = 0
     let output = "++++++++++[>+>+++>+++++++>++++++++++<<<<-]"; // base
-    
+    for (let i = 0; i < text.length; i++) {
+        let charCode = text.charCodeAt(i);
+        let closest = memory.reduce((prev, curr, idx) => Math.abs(curr - charCode) < Math.abs(prev.value - charCode) ? {value: curr, index: idx} : prev, {value: memory[pointer], index: pointer});
+        while (pointer < closest.index) {
+            output += ">";
+            pointer++;
+        }
+        while (pointer > closest.index) {
+            output += "<";
+            pointer--;
+        }
+        while (memory[pointer] < charCode) {
+            output += "+";
+            memory[pointer]++;
+        }
+        while (memory[pointer] > charCode) {
+            output += "-";
+            memory[pointer]--;
+        }
+        output += ".";
+    }
     if (text == "") return ""
     return output;
 }
