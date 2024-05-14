@@ -1,12 +1,14 @@
 // Função para atualizar o texto
 function atualizarTexto() {
-    var texto = document.getElementById("brainfuck-decrypt").value;
+    let brainfuckText = document.getElementById("brainfuck-decrypt").value;
+    let inputText = document.getElementById("brainfuck-encrypt").value;
+    let brainfuckToTextResult = brainfuckToText(brainfuckText);
+    let textToBrainfuckResult = textToBrainfuck(inputText)
 
-    var result = brainfuckToText(texto);
-    document.getElementById("outputTextDecrypt").innerText = "Texto digitado:\n\n" + result.output;
+    document.getElementById("outputTextDecrypt").innerText = `Texto digitado:\n${brainfuckToTextResult.output||'\n'}`;
+    document.getElementById("memorySnapshot").innerText = `Memória:\n${brainfuckToTextResult.lastSnapshot.join(', ')||'\n'}`;
 
-    // Exibe o último snapshot da memória
-    document.getElementById("memorySnapshot").innerText = "Memória:\n" + result.lastSnapshot.join(', ');
+    document.getElementById("outputTextEncrypt").innerText = `Texto digitado:\n${textToBrainfuckResult||'\n'}`;
 }
 
 function brainfuckToText(code) {
@@ -30,15 +32,12 @@ function brainfuckToText(code) {
             default: break; // Ignora caracteres inválidos
         }
 
-        // Atualiza o maior ponteiro usado, se necessário
         if (pointer > maxPointer) {maxPointer = pointer}
-
-        // Atualiza o maior valor escrito, se necessário
         if (char === '+' || char === '-') {maxPointer = Math.max(maxPointer, pointer)}
 
         iterationCount++;
         if (iterationCount > MAX_ITERATIONS) {
-            throw new Error('Exceeded maximum iterations. Possible infinite loop in code.');
+            throw new Error('Interações máximas alcançadas. É possivel haver um loop infinito.');
         }
     }
 
@@ -77,21 +76,16 @@ function brainfuckToText(code) {
 }
 
 function textToBrainfuck(text) {
-    let output = "++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>+"; // base
-    for (let i = 0; i < text.length; i++) {
-        let ascii = text.charCodeAt(i);
-        let increment = ascii - 32;
-        for (let j = 0; j < increment; j++) {
-            output += "+";
-        }
-        output += ".>";
-    }
+    let output = "++++++++++[>+>+++>+++++++>++++++++++<<<<-]"; // base
+    
+    if (text == "") return ""
     return output;
 }
 
 // Adicionar event listeners para os eventos "input" e "keyup"
 document.getElementById("brainfuck-decrypt").addEventListener("input", atualizarTexto);
 document.getElementById("brainfuck-decrypt").addEventListener("keyup", atualizarTexto);
-
+document.getElementById("brainfuck-encrypt").addEventListener("input", atualizarTexto);
+document.getElementById("brainfuck-encrypt").addEventListener("keyup", atualizarTexto);
 // Chamar a função inicialmente para exibir o valor inicial (se houver)
 atualizarTexto();

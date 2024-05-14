@@ -14,6 +14,11 @@ body {
 .navbar a:hover {
     background: #ddd;
     color: black;
+    
+}
+
+.border {
+    border-color: black;
 }
 
 @media screen and (max-width: 600px) {
@@ -38,14 +43,6 @@ body {
     }
 }
 
-#inputText textarea {
-    border-radius: 0.5em;
-    padding: 0.2em 1.5em 0 0.2em;
-    width: 92.5%;
-    height: 6em;
-    color: #212529;
-    border: #D0BE90 solid 1px;
-    font: normal 11px "Merriweather",monospace;
-    word-wrap: break-word;
-    text-overflow: ellipsis
+#col-lg-3 {
+    padding: 0;
 }
