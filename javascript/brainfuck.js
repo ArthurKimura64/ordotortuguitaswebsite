@@ -1,7 +1,14 @@
-// Função para atualizar o texto
 function atualizarTexto() {
     let brainfuckText = document.getElementById("brainfuck-decrypt").value;
     let inputText = document.getElementById("brainfuck-encrypt").value;
+
+    if (!brainfuckText ||!inputText) {
+        // Handle empty input values
+        document.getElementById("outputTextDecrypt").innerText = "Erro: Input values cannot be empty.";
+        document.getElementById("outputTextEncrypt").innerText = "Erro: Input values cannot be empty.";
+        return;
+    }
+    try {
     let brainfuckToTextResult = brainfuckToText(brainfuckText);
     let textToBrainfuckResult = textToBrainfuck(inputText)
 
@@ -9,6 +16,10 @@ function atualizarTexto() {
     document.getElementById("memorySnapshot").innerText = `Memória:\n${brainfuckToTextResult.lastSnapshot.join(', ')||'\n'}`;
 
     document.getElementById("outputTextEncrypt").innerText = `Texto digitado:\n${textToBrainfuckResult||'\n'}`;
+    } catch (error) {
+        document.getElementById("outputTextDecrypt").innerText = `Erro: ${error.message}`;
+        document.getElementById("outputTextEncrypt").innerText = `Erro: ${error.message}`;
+    }
 }
 
 function brainfuckToText(code) {
