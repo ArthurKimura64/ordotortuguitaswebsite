@@ -1,5 +1,6 @@
 function eventTextToBrainfuck() {
     document.getElementById("cipher").value = `${textToBrainfuck(document.getElementById("text").value)||''}`
+    document.getElementById()
 }
 
 function eventBrainfuckToText() {
