@@ -1,62 +1,110 @@
-body {
-    margin: 0;
-    font-family:"Roboto";
-    font-size: 15px;
-    padding-top: 70px;
-    background-color: #f4f4f4;
+root {
+  --navbar-width: 200px;
 }
 
+body {
+  margin: 0;
+  font-family: "Roboto";
+  font-size: 16px;
+  padding-top: 70px;
+  background-color: #f4f4f4;
+}
 
 .navbar {
-    font-family: 'Lexend';
-    font-size: 16px;
+  font-family: "Lexend";
+  font-size: 16px;
 }
 
 .navbar a:hover {
-    background: #ddd;
-    color: black;
-    
+  background: #ddd;
+  color: black;
 }
 
 textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-.cipher-result {
-    width: 100%;
-    float: left;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 300px;
 }
 
 @media screen and (max-width: 600px) {
-    .navbar a {
-        float: none;
-        display: block;
-    }
+  .navbar a {
+    float: none;
+    display: block;
+  }
 
-    .navbar .logo {
-        display: block;
-        float: none;
-    }
+  .navbar .logo {
+    display: block;
+    float: none;
+  }
 
-    #body-content {
-        margin-top: 200px;
-    }
+  .seta {
+    position: relative;
+    width: 96px;
+    height: 56px;
+    margin-top: 0;
+    background: black;
+  }
+
+  .seta:first-child::after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    top: -48px;
+    left: 0px;
+    border: 48px solid transparent;
+    border-right-color: black;
+    border-left-color: black;
+  }
+
+  .seta:last-child::after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    top: 56px;
+    left: 0px;
+    border: 48px solid transparent;
+    border-top-color: black;
+  }
 }
 
 @media screen and (min-width: 601px) {
-    .navbar a.nav-right {
-        float: right;
-    }
-}
+  .navbar a.nav-right {
+    float: right;
+  }
 
-#col-lg-3 {
-    padding: 0;
+  .seta {
+    position: relative;
+    width: 56px;
+    height: 96px;
+    margin-top: 8px;
+    background: black;
+  }
+
+  .seta:first-child::after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    top: 0px;
+    left: -48px;
+    border: 48px solid transparent;
+    border-top-color: black;
+    border-bottom-color: black;
+  }
+
+  .seta:last-child::after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    top: 0px;
+    left: 56px;
+    border: 48px solid transparent;
+    border-left-color: black;
+  }
 }

@@ -1,27 +1,10 @@
-function atualizarTexto() {
-    let brainfuckText = document.getElementById("brainfuck-decrypt").value;
-    let inputText = document.getElementById("brainfuck-encrypt").value;
-
-    if (!brainfuckText ||!inputText) {
-        // Handle empty input values
-        document.getElementById("outputTextDecrypt").innerText = "Erro: Input values cannot be empty.";
-        document.getElementById("outputTextEncrypt").innerText = "Erro: Input values cannot be empty.";
-        return;
-    }
-    try {
-    let brainfuckToTextResult = brainfuckToText(brainfuckText);
-    let textToBrainfuckResult = textToBrainfuck(inputText)
-
-    document.getElementById("outputTextDecrypt").innerText = `Texto digitado:\n${brainfuckToTextResult.output||'\n'}`;
-    document.getElementById("memorySnapshot").innerText = `Memória:\n${brainfuckToTextResult.lastSnapshot.join(', ')||'\n'}`;
-
-    document.getElementById("outputTextEncrypt").innerText = `Texto digitado:\n${textToBrainfuckResult||'\n'}`;
-    } catch (error) {
-        document.getElementById("outputTextDecrypt").innerText = `Erro: ${error.message}`;
-        document.getElementById("outputTextEncrypt").innerText = `Erro: ${error.message}`;
-    }
+function eventTextToBrainfuck() {
+    document.getElementById("cipher").value = `${textToBrainfuck(document.getElementById("text").value)||''}`
 }
 
+function eventBrainfuckToText() {
+    document.getElementById("text").value = `${brainfuckToText(document.getElementById("cipher").value).output||''}`
+}
 function brainfuckToText(code) {
     const memory = new Uint8Array(30000).fill(0);
     let pointer = 0;
@@ -116,9 +99,9 @@ function textToBrainfuck(text) {
 }
 
 // Adicionar event listeners para os eventos "input" e "keyup"
-document.getElementById("brainfuck-decrypt").addEventListener("input", atualizarTexto);
-document.getElementById("brainfuck-decrypt").addEventListener("keyup", atualizarTexto);
-document.getElementById("brainfuck-encrypt").addEventListener("input", atualizarTexto);
-document.getElementById("brainfuck-encrypt").addEventListener("keyup", atualizarTexto);
+document.getElementById("cipher").addEventListener("input", eventBrainfuckToText);
+document.getElementById("cipher").addEventListener("keyup", eventBrainfuckToText);
+document.getElementById("text").addEventListener("input", eventTextToBrainfuck);
+document.getElementById("text").addEventListener("keyup", eventTextToBrainfuck);
 // Chamar a função inicialmente para exibir o valor inicial (se houver)
 atualizarTexto();
