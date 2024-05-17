@@ -1,13 +1,12 @@
 function eventTextToBrainfuck() {
     document.getElementById("cipher").value = `${textToBrainfuck(document.getElementById("text").value)||''}`
-    document.getElementById()
 }
-
 function eventBrainfuckToText() {
     document.getElementById("text").value = `${brainfuckToText(document.getElementById("cipher").value).output||''}`
+    
 }
 function brainfuckToText(code) {
-    const memory = new Uint8Array(30000).fill(0);
+    const memory = new Uint8Array(10).fill(0);
     let pointer = 0;
     let output = '';
     let iterationCount = 0;
@@ -69,7 +68,6 @@ function brainfuckToText(code) {
         throw new Error('No opening bracket found for closing bracket at index ' + startIndex);
     }
 }
-
 function textToBrainfuck(text) {
     let memory = [0,10,30,70,100]
     let pointer = 0
