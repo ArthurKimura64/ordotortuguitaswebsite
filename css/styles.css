@@ -43,7 +43,7 @@ textarea {
   border: 51px solid transparent;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .navbar a {
     float: none;
     display: block;
@@ -73,7 +73,7 @@ textarea {
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
   .navbar a.nav-right {
     float: right;
   }
