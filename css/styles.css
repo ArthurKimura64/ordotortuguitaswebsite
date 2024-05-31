@@ -16,6 +16,8 @@ body {
   color: black;
 }
 
+
+
 textarea {
   padding: 10px;
   border: 1px solid #ddd;
@@ -52,6 +54,10 @@ textarea {
   .navbar .logo {
     display: block;
     float: none;
+  }
+
+  .content {
+    padding: 50px;
   }
 
   .row:first-child {

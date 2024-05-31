@@ -1,10 +1,20 @@
-function eventTextToBrainfuck() {
-    document.getElementById("cipher").value = `${textToBrainfuck(document.getElementById("text").value)||''}`
+function eventBrainfuck() {
+    let command = document.querySelector('input[name="btnradio"]:checked').value
+    if (command == "decrypt") {
+        document.getElementById("output").value = `${brainfuckToText(document.getElementById("input").value).output||''}`
+    }
+    if (command == "encrypt") {
+        document.getElementById("output").value = `${textToBrainfuck(document.getElementById("input").value)||''}`
+    }
 }
-function eventBrainfuckToText() {
-    document.getElementById("text").value = `${brainfuckToText(document.getElementById("cipher").value).output||''}`
-    
+
+function eventChangeBrainfuck() {
+    let provisory = document.getElementById("output").value
+    document.getElementById("output").value = document.getElementById("input").value
+    document.getElementById("input").value = provisory
+    eventBrainfuck()
 }
+
 function brainfuckToText(code) {
     const memory = new Uint8Array(10).fill(0);
     let pointer = 0;
@@ -98,9 +108,10 @@ function textToBrainfuck(text) {
 }
 
 // Adicionar event listeners para os eventos "input" e "keyup"
-document.getElementById("cipher").addEventListener("input", eventBrainfuckToText);
-document.getElementById("cipher").addEventListener("keyup", eventBrainfuckToText);
-document.getElementById("text").addEventListener("input", eventTextToBrainfuck);
-document.getElementById("text").addEventListener("keyup", eventTextToBrainfuck);
+document.getElementById("input").addEventListener("input", eventBrainfuck);
+document.getElementById("input").addEventListener("keyup", eventBrainfuck);
+document.querySelectorAll('input[name="btnradio"]').forEach((choice) => {choice.addEventListener("change", eventChangeBrainfuck)})
+
+
 // Chamar a função inicialmente para exibir o valor inicial (se houver)
-atualizarTexto();
+eventBrainfuck()

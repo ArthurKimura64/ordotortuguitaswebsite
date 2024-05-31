@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Four Square Cipher - Ordo Tortuguitas</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://arthurkimura64.github.io/ordotortuguitaswebsite/css/fontFaces.css" />
+    <link rel="stylesheet" href="https://arthurkimura64.github.io/ordotortuguitaswebsite/css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>$(function () { $("#myNavbar").load("https://arthurkimura64.github.io/ordotortuguitaswebsite/html/navigationbar.html"); });</script>
+</head>
+<body>
+    <nav id="myNavbar"></nav>
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite">Home</a></li>
+              <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite/cifras">Cifras</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Four Square Cipher</li>
+            </ol>
+          </nav>
+        <div class="row justify-content-center">
+            <div class="col-md-1 seta"></div>
+            <div class="col-md-3" style="background-color: grey;">
+                ENTRADA<br />
+                <textarea id="input" style="width: 100%;">TIJHPCIX</textarea>
+            </div>
+            <div class="col-md-1 seta"></div>
+            <div class="col-md-3" style="background-color: grey;">
+                CONFIGURAR<br />
+                <div class="btn-group mb-3 start-50 translate-middle-x" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="encrypt" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="btnradio1">Encriptografar</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="decrypt" autocomplete="off" checked>
+                    <label class="btn btn-outline-dark" for="btnradio3">Descriptografar</label>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="key1" placeholder="Chave 1" value="VERDADE">
+                    <select class="input-group-text" id="letter1">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                        <option value="H">H</option>
+                        <option value="I">I</option>
+                        <option value="J">J</option>
+                        <option value="K">K</option>
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        <option value="N">N</option>
+                        <option value="O">O</option>
+                        <option value="P">P</option>
+                        <option value="Q">Q</option>
+                        <option value="R">R</option>
+                        <option value="S">S</option>
+                        <option value="T">T</option>
+                        <option value="U">U</option>
+                        <option value="V">V</option>
+                        <option value="W">W</option>
+                        <option value="X">X</option>
+                        <option value="Y">Y</option>
+                        <option value="Z" selected>Z</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="key2" placeholder="Chave 2" value="mentira">
+                    <select class="input-group-text" id="letter2">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                        <option value="H">H</option>
+                        <option value="I">I</option>
+                        <option value="J">J</option>
+                        <option value="K">K</option>
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        <option value="N">N</option>
+                        <option value="O">O</option>
+                        <option value="P">P</option>
+                        <option value="Q">Q</option>
+                        <option value="R">R</option>
+                        <option value="S">S</option>
+                        <option value="T">T</option>
+                        <option value="U">U</option>
+                        <option value="V">V</option>
+                        <option value="W">W</option>
+                        <option value="X">X</option>
+                        <option value="Y">Y</option>
+                        <option value="Z" selected>Z</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="key3" placeholder="Chave 3" value="artista">
+                    <select class="input-group-text" id="letter3">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                        <option value="H">H</option>
+                        <option value="I">I</option>
+                        <option value="J">J</option>
+                        <option value="K">K</option>
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        <option value="N">N</option>
+                        <option value="O">O</option>
+                        <option value="P">P</option>
+                        <option value="Q">Q</option>
+                        <option value="R">R</option>
+                        <option value="S">S</option>
+                        <option value="T">T</option>
+                        <option value="U">U</option>
+                        <option value="V">V</option>
+                        <option value="W">W</option>
+                        <option value="X">X</option>
+                        <option value="Y">Y</option>
+                        <option value="Z" selected>Z</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="key4" placeholder="Chave 4" value="morte">
+                    <select class="input-group-text" id="letter4">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                        <option value="H">H</option>
+                        <option value="I">I</option>
+                        <option value="J">J</option>
+                        <option value="K">K</option>
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        <option value="N">N</option>
+                        <option value="O">O</option>
+                        <option value="P">P</option>
+                        <option value="Q">Q</option>
+                        <option value="R">R</option>
+                        <option value="S">S</option>
+                        <option value="T">T</option>
+                        <option value="U">U</option>
+                        <option value="V">V</option>
+                        <option value="W">W</option>
+                        <option value="X">X</option>
+                        <option value="Y">Y</option>
+                        <option value="Z" selected>Z</option>
+                    </select>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="allPossibilities" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Checar todas as variações</label>
+                  </div>
+            </div>
+            <div class="col-md-1 seta"></div>
+            <div class="col-md-3" style="background-color: grey;">
+                SAÍDA<br />
+                <textarea readonly="readonly" id="output" style="width: 100%;"></textarea>
+            </div>
+            <div class="col-md-1 seta"></div>
+        </div>
+    </div>
+</body>
+<script src="https://arthurkimura64.github.io/ordotortuguitaswebsite/javascript/fourSquare.js" charset="utf-8"></script>
+</html>
