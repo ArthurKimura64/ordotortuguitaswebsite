@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Four Square Cipher - Ordo Tortuguitas</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -12,29 +13,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>$(function () { $("#myNavbar").load("https://arthurkimura64.github.io/ordotortuguitaswebsite/html/navigationbar.html"); });</script>
 </head>
+
 <body>
     <nav id="myNavbar"></nav>
     <div class="container-fluid">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite">Home</a></li>
-              <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite/cifras">Cifras</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Four Square Cipher</li>
+                <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite">Home</a></li>
+                <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite/cifras">Cifras</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Cifra Four Square</li>
             </ol>
-          </nav>
+        </nav>
         <div class="row justify-content-center">
             <div class="col-md-1 seta"></div>
-            <div class="col-md-3" style="background-color: grey;">
-                ENTRADA<br />
+            <div class="col-md-3" style="background-color: grey;">ENTRADA<br />
                 <textarea id="input" style="width: 100%;">TIJHPCIX</textarea>
             </div>
             <div class="col-md-1 seta"></div>
-            <div class="col-md-3" style="background-color: grey;">
-                CONFIGURAR<br />
+            <div class="col-md-3" style="background-color: grey;">CONFIGURAR<br />
                 <div class="btn-group mb-3 start-50 translate-middle-x" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="encrypt" autocomplete="off">
                     <label class="btn btn-outline-dark" for="btnradio1">Encriptografar</label>
-                  
+
                     <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="decrypt" autocomplete="off" checked>
                     <label class="btn btn-outline-dark" for="btnradio3">Descriptografar</label>
                 </div>
@@ -163,13 +163,12 @@
                     </select>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="allPossibilities" role="switch" id="flexSwitchCheckDefault">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Checar todas as variações</label>
-                  </div>
+                    <input type="checkbox" class="form-check-input" id="allPossibilities" role="switch">
+                    <label class="form-check-label">Checar todas as variações</label>
+                </div>
             </div>
             <div class="col-md-1 seta"></div>
-            <div class="col-md-3" style="background-color: grey;">
-                SAÍDA<br />
+            <div class="col-md-3" style="background-color: grey;">SAÍDA<br />
                 <textarea readonly="readonly" id="output" style="width: 100%;"></textarea>
             </div>
             <div class="col-md-1 seta"></div>
@@ -177,4 +176,5 @@
     </div>
 </body>
 <script src="https://arthurkimura64.github.io/ordotortuguitaswebsite/javascript/fourSquare.js" charset="utf-8"></script>
+
 </html>

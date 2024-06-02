@@ -16,7 +16,10 @@ body {
   color: black;
 }
 
-
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 textarea {
   padding: 10px;
