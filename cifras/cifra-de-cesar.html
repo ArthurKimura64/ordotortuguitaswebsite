@@ -24,32 +24,41 @@
     <div class="container-fluid">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite">Home</a>
-                </li>
-                <li class="breadcrumb-item"><a
-                        href="https://arthurkimura64.github.io/ordotortuguitaswebsite/cifras">Cifras</a></li>
+                <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite">Home</a></li>
+                <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite/cifras">Cifras</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Cifra de César</li>
             </ol>
         </nav>
         <div class="row justify-content-center">
             <div class="col-md-1 seta"></div>
             <div class="col-md-3" style="background-color: grey;">ENTRADA<br />
-                <textarea id="input" style="width: 100%;">Nkz ltmcn!</textarea>
+                <textarea id="input" style="width: 100%;">Pmb nvoep!</textarea>
             </div>
             <div class="col-md-1 seta"></div>
             <div class="col-md-3" style="background-color: grey;">CONFIGURAR<br />
-                <div class="btn-group mb-3 start-50 translate-middle-x" role="group"
-                    aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="encrypt" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="btnradio1">Encriptografar</label>
+                <div class="btn-group mb-3 start-50 translate-middle-x" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="command" id="command1" value="encrypt" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="command1">Encriptografar</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="decrypt" autocomplete="off" checked>
-                    <label class="btn btn-outline-dark" for="btnradio3">Descriptografar</label>
+                    <input type="radio" class="btn-check" name="command" id="command2" value="decrypt" autocomplete="off" checked>
+                    <label class="btn btn-outline-dark" for="command2">Descriptografar</label>
                 </div>
                 <div class="input-group mb-3">
                     <button class="input-group-text" id="minus">-</button>
                         <input type="number" class="form-control" id="inclement" value="1">
                     <button class="input-group-text" id="plus">+</button>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="alphabet" id="alphabet1" value="alphabet" checked>
+                    <label class="form-check-label" for="alphabet1">Usar alfabeto normal (A-Z)</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="alphabet" id="alphabet2" value="alphanumeric">
+                    <label class="form-check-label" for="alphabet2">Usar alfabeto (A-Z) e usar números (0-9)</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="alphabet" id="alphabet3" value="ascii" disabled>
+                    <label class="form-check-label" for="alphabet3">Usar ASCII (0-127) como alfabeto (Em breve)</label>
                 </div>
                 <div class="form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="allPossibilities" role="switch">

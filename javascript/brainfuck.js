@@ -1,5 +1,5 @@
 function eventBrainfuck() {
-    let command = document.querySelector('input[name="btnradio"]:checked').value
+    let command = document.querySelector('input[name="command"]:checked').value
     if (command == "decrypt") {
         document.getElementById("output").value = `${brainfuckToText(document.getElementById("input").value).output||''}`
     }
@@ -110,7 +110,7 @@ function textToBrainfuck(text) {
 // Adicionar event listeners para os eventos "input" e "keyup"
 document.getElementById("input").addEventListener("input", eventBrainfuck);
 document.getElementById("input").addEventListener("keyup", eventBrainfuck);
-document.querySelectorAll('input[name="btnradio"]').forEach((choice) => {choice.addEventListener("change", eventChangeBrainfuck)})
+document.querySelectorAll('input[name="command"]').forEach((choice) => {choice.addEventListener("change", eventChangeBrainfuck)})
 
 
 // Chamar a função inicialmente para exibir o valor inicial (se houver)

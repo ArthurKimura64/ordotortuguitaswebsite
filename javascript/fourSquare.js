@@ -2,7 +2,7 @@ function eventFourSquareCipher() {
   document.getElementById("output").value = `${
     fourSquareCipher(
       document.getElementById("input").value,
-      document.querySelector('input[name="btnradio"]:checked').value
+      document.querySelector('input[name="command"]:checked').value
     ) || ""
   }`
 }
@@ -16,7 +16,7 @@ function eventFourSquareCipherDecrypt(command) {
   }`
 }
 function eventChangeFourSquareCipher() {
-  let command = document.querySelector('input[name="btnradio"]:checked').value
+  let command = document.querySelector('input[name="command"]:checked').value
   if (command == "encrypt") {
     document.getElementById("allPossibilities").checked = false;
     document.getElementById("allPossibilities").setAttribute('disabled', 'disabled');
@@ -119,7 +119,7 @@ function generateKeySquare(key, letterToRemove) {
 
 document.getElementById("input").addEventListener("input", eventFourSquareCipher)
 document.getElementById("input").addEventListener("keyup", eventFourSquareCipher)
-document.querySelectorAll('input[name="btnradio"]').forEach((choice) => choice.addEventListener("change", eventChangeFourSquareCipher)
+document.querySelectorAll('input[name="command"]').forEach((choice) => choice.addEventListener("change", eventChangeFourSquareCipher)
 )
 document.getElementById("allPossibilities").addEventListener("change", eventFourSquareCipher)
 for (let i = 1; i <= 4; i++) {
