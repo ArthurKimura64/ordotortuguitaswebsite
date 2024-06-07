@@ -59,7 +59,7 @@ function caesarCipher(message, shift, command) {
         case "alphabet":
             alphabet = [...Array(26)].map((_, i) => String.fromCharCode(i + 65))
             lowerAlphabet = [...Array(26)].map((_, i) => String.fromCharCode(i + 97))
-            break;
+            break
         case "ascii":
             alphabet = [...Array(127)].map((_, i) => String.fromCharCode(i + 1))
             lowerAlphabet = alphabet;
@@ -88,7 +88,7 @@ function caesarCipher(message, shift, command) {
         if (alphabetType === "normal" && !isLower && !isUpper) return char;
         if (alphabetType === "alphanumeric" && !isLower && !isUpper && !isDigit) return char;
 
-        if (isDigit) return numbers[(numbers.indexOf(char) + shift) % numbers.length];
+        if (alphabetType === "alphanumeric" && isDigit) return numbers[(numbers.indexOf(parseInt(char)) + shift) % numbers.length];
 
         const alphabetToUse = isLower ? lowerAlphabet : alphabet;
         const index = alphabetToUse.indexOf(char);
