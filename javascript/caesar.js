@@ -1,18 +1,14 @@
+function updateOutput(value) {
+    document.getElementById("output").value = value || "";
+}
+
 function eventCaesar() {
     let command = document.querySelector('input[name="command"]:checked').value
-    document.getElementById("output").value = `${
-        caesar(
-            document.getElementById("input").value, command) || ""
-        }`
-    
+    updateOutput(caesar(document.getElementById("input").value, command));
 }
 
 function eventCaesarDecrypt(command) {
-    document.getElementById("output").value = `${
-        caesar(
-            document.getElementById("input").value, command
-        ) || ""
-        }`
+    updateOutput(caesar(document.getElementById("input").value, command));
 }
 
 function eventChangeCaesar() {
@@ -32,22 +28,25 @@ function eventChangeCaesar() {
 }
 
 function caesar(message, command) {
-    let result = ""
-    if (command == "decrypt" && (document.getElementById("allPossibilities").checked)) {
-        
-        for (let i = 1; i <= 26; i++) {
-            result +=  caesarCipher(message, i, command) + "\n"
-        }
-    } else {
-        result = caesarCipher(message, document.getElementById("inclement").value, command)
+    if (command === "decrypt" && document.getElementById("allPossibilities").checked) {
+        return decryptAllPossibilities(message);
     }
-    return result
+    return caesarCipher(message, document.getElementById("inclement").value, command);
 }
+
+function decryptAllPossibilities(message) {
+    let result = "";
+    for (let i = 1; i <= 26; i++) {
+        result += caesarCipher(message, i, "decrypt") + "\n";
+    }
+    return result;
+}
+
 function caesarCipher(message, shift, command) {
+    shift = parseInt(shift)
     let alphabetType = document.querySelector('input[name="alphabet"]:checked').value
     if (command == "decrypt") shift *= -1;
-    shift = parseInt(shift % 26 + 26) % 26;
-
+    let letterShift = (shift % 26 + 26) % 26;
     let alphabet = [];
     let lowerAlphabet = [];
     let numbers = []
@@ -88,18 +87,23 @@ function caesarCipher(message, shift, command) {
         if (alphabetType === "normal" && !isLower && !isUpper) return char;
         if (alphabetType === "alphanumeric" && !isLower && !isUpper && !isDigit) return char;
 
-        if (alphabetType === "alphanumeric" && isDigit) return numbers[(numbers.indexOf(parseInt(char)) + shift) % numbers.length];
+        if (alphabetType === "alphanumeric" && isDigit) {
+            if ((numbers.indexOf(parseInt(char)) + shift) % numbers.length < 0) {
+                return numbers[numbers.length  + ((numbers.indexOf(parseInt(char)) + shift) % numbers.length)]
+            }
+            return numbers[(numbers.indexOf(parseInt(char)) + shift) % numbers.length]
+        }
 
         const alphabetToUse = isLower ? lowerAlphabet : alphabet;
         const index = alphabetToUse.indexOf(char);
 
         if (index === -1) return char;
 
-        const shiftedIndex = (index + shift) % alphabetToUse.length;
+        const shiftedIndex = (index + letterShift) % alphabetToUse.length;
         return alphabetToUse[shiftedIndex];
     });
 
-    return result;
+    return result
 }
 
 // Adicionar event listeners para os eventos "input" e "keyup"
