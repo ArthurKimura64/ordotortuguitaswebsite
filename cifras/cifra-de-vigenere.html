@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Cifra de César - Ordo Tortuguitas</title>
+    <title>Cifra de Vigenère - Ordo Tortuguitas</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -26,13 +26,13 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite">Home</a></li>
                 <li class="breadcrumb-item"><a href="https://arthurkimura64.github.io/ordotortuguitaswebsite/cifras">Cifras</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Cifra de César</li>
+                <li class="breadcrumb-item active" aria-current="page">Cifra de Vigenère</li>
             </ol>
         </nav>
         <div class="row justify-content-center">
             <div class="col-md-1 seta"></div>
             <div class="col-md-3" style="background-color: grey;">ENTRADA<br />
-                <textarea id="input" style="width: 100%;">Pmb nvoep!</textarea>
+                <textarea id="input" style="width: 100%;" oninput="this.value = this.value.toUpperCase()">MSJMY JY QGPMM!</textarea>
             </div>
             <div class="col-md-1 seta"></div>
             <div class="col-md-3" style="background-color: grey;">CONFIGURAR<br />
@@ -44,25 +44,15 @@
                     <label class="btn btn-outline-dark" for="command2">Descriptografar</label>
                 </div>
                 <div class="input-group mb-3">
-                    <button class="input-group-text" id="minus">-</button>
-                        <input type="number" class="form-control" id="inclement" value="1">
-                    <button class="input-group-text" id="plus">+</button>
+                <select class="input-group-text" id="ciphermode" style="width: 100%">
+                    <option value="vigenere" selected>Cifra de Vigenère Padrão</option>
+                </select>
                 </div>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" name="alphabet" id="alphabet1" value="alphabet" checked>
-                    <label class="form-check-label" for="alphabet1">Usar alfabeto normal (A-Z)</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="key" placeholder="Chave" value="TORTUGUITAS" oninput="this.value = this.value.toUpperCase()">
                 </div>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" name="alphabet" id="alphabet2" value="alphanumeric">
-                    <label class="form-check-label" for="alphabet2">Usar alfabeto (A-Z) e usar números (0-9)</label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" name="alphabet" id="alphabet3" value="ascii" disabled>
-                    <label class="form-check-label" for="alphabet3">Usar ASCII (0-127) como alfabeto (Em breve)</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input type="checkbox" class="form-check-input" id="allPossibilities" role="switch">
-                    <label class="form-check-label">Checar todas as variações</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="alphabet" placeholder="alfabeto" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" oninput="this.value = this.value.toUpperCase()">
                 </div>
             </div>
             <div class="col-md-1 seta"></div>
@@ -73,6 +63,6 @@
         </div>
     </div>
 </body>
-<script src="https://arthurkimura64.github.io/ordotortuguitaswebsite/javascript/caesar.js" charset="utf-8"></script>
+<script src="https://arthurkimura64.github.io/ordotortuguitaswebsite/javascript/vigenere.js" charset="utf-8"></script>
 
 </html>
